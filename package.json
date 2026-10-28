@@ -1,0 +1,29 @@
+{
+  "name": "frames-by-andrej",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "setup:content": "sanity exec scripts/setup-content.ts --with-user-token"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.468.0",
+    "next-sanity": "^10.0.0",
+    "sanity": "^4.0.0",
+    "@sanity/vision": "^4.0.0",
+    "@sanity/image-url": "^1.1.0",
+    "styled-components": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
