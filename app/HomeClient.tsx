@@ -39,7 +39,7 @@ const sampleGallery=[
   {src:photos.architecture,title:'Lines and light',type:'Urban'},
   {src:photos.forest,title:'Into the green',type:'Nature'},
 ];
-const filters=['All','Nature','Urban','Portraits','Events'];
+const filters=['All','Nature','Wildlife','Urban','Portraits','Events'];
 export default function HomeClient({content}:{content:SiteContent|null}){
   const slides=content?.slides.length?content.slides.map(s=>({...s,heading:<>{s.heading}<br/><em>{s.highlight}</em></>})):sampleSlides;
   const collections=content?.collections.length?content.collections:sampleCollections;

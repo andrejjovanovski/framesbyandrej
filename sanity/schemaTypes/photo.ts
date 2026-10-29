@@ -3,7 +3,7 @@ export const photoType = defineType({name:'photo', title:'Portfolio photograph',
  defineField({name:'title',type:'string',validation:r=>r.required()}),
  defineField({name:'image',type:'image',options:{hotspot:true},validation:r=>r.required()}),
  defineField({name:'alt',title:'Accessible description',type:'string'}),
- defineField({name:'category',type:'string',options:{list:['Nature','Urban','Portraits','Events']},validation:r=>r.required()}),
+ defineField({name:'category',type:'string',options:{list:['Nature','Wildlife','Urban','Portraits','Events']},validation:r=>r.required()}),
  defineField({name:'order',type:'number',description:'Lower numbers appear first'}),
  defineField({name:'featured',type:'boolean',initialValue:true,description:'Show this photograph in the website’s Featured Work section.'})
  ],preview:{select:{title:'title',media:'image',subtitle:'category'}}});
