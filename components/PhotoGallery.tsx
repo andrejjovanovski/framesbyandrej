@@ -16,7 +16,7 @@ export default function PhotoGallery({photos,categories,preview=false,initialCat
   const close=useRef<HTMLButtonElement>(null);
   const options=categoryOptions(categories,photos.map(photo=>photo.type));
   const filter=categoryKey(initialCategory);
-  const visible=preview?photos.filter(photo=>photo.featured!==false).slice(0,8)
+  const visible=preview?photos.filter(photo=>photo.featured!==false)
     :photos.filter(photo=>!filter||categoryKey(photo.type)===filter);
   const displayed=preview?visible:visible.slice(0,limit);
   const current=lightbox===null?null:visible[lightbox];
@@ -55,7 +55,7 @@ export default function PhotoGallery({photos,categories,preview=false,initialCat
         className={filter===category.key?'active':''} aria-pressed={filter===category.key}
         onClick={()=>router.push(category.key?`/gallery?category=${encodeURIComponent(category.key)}`:'/gallery',{scroll:false})}>{category.title}</button>)}
     </div>}
-    <div className={`portfolio-grid${preview?' featured-preview':''}`}>
+    <div className="portfolio-grid">
       {visible.length===0&&<p className="portfolio-empty" role="status">{filter?'No photographs in this category yet.':preview?'Featured photographs coming soon.':'New photographs coming soon.'}</p>}
       {displayed.map((photo,index)=><button className="portfolio-photo" key={photo.id||`${photo.src}-${index}`}
         onClick={()=>setLightbox(index)} aria-label={`Open photo: ${photo.title}`}>

@@ -15,7 +15,7 @@ export async function getSiteContent({allPhotos=false}:{allPhotos?:boolean}={}):
  "categories":*[_type=="category" && defined(slug.current)]|order(order asc,title asc){title,"key":slug.current},
  "slides":*[_type=="heroSlide"]|order(order asc,_createdAt asc){eyebrow,heading,highlight,sub,image},
  "collections":*[_type=="collection"]|order(order asc,_createdAt asc){title,subtitle,category,image},
- "gallery":*[_type=="photo" && defined(image.asset)${allPhotos?"":" && featured!=false"}]|order(order asc,_createdAt asc)${allPhotos?"":"[0...8]"}{_id,featured,title,alt,category,image,"dimensions":image.asset->metadata.dimensions},
+ "gallery":*[_type=="photo" && defined(image.asset)${allPhotos?"":" && featured!=false"}]|order(order asc,_createdAt asc){_id,featured,title,alt,category,image,"dimensions":image.asset->metadata.dimensions},
  "settings":*[_type=="siteSettings"][0]{aboutImage,aboutLead,aboutParagraphs,contactEmail,instagramUrl,facebookUrl}
  }`,{}, {cache:'no-store'});
  return {categories:result.categories,slides:result.slides.map(s=>({...s,image:sanityImage(s.image,2200)})).filter(s=>s.image),collections:result.collections.map(c=>({...c,image:sanityImage(c.image,1200)})).filter(c=>c.image),gallery:result.gallery.map(g=>({id:g._id,featured:g.featured,src:sanityImage(g.image?.asset,1800),title:g.title,type:g.category,alt:g.alt,width:g.dimensions?.width,height:g.dimensions?.height})).filter(g=>g.src),settings:result.settings?{...result.settings,aboutImage:sanityImage(result.settings.aboutImage,1300)}:null};
