@@ -4,13 +4,34 @@
 @media(max-width:780px){.header-inner{height:83px;padding:0 5%}.brand img{width:140px;height:75px}.desktop-nav,.header-cta,.social-icon{display:none}.menu-toggle{display:flex}.mobile-menu{display:flex;position:fixed;inset:0;background:#0b0b0a;z-index:29;flex-direction:column;align-items:center;justify-content:center;gap:26px}.mobile-menu button{border:0;background:none;font-family:'Cormorant Garamond',serif;font-size:46px;text-transform:capitalize}.mobile-menu span{position:absolute;bottom:45px;font-size:9px;color:var(--gold);letter-spacing:.16em}.hero{min-height:680px;height:100svh}.hero-inner{padding:125px 7% 45px}.hero h1{font-size:clamp(62px,12vw,98px)}.hero-description{max-width:350px}.vertical-label{display:none}.section{padding:78px 0}.section-heading{display:block}.section-intro{margin-top:22px}.collection-grid{gap:10px}.collection-card{height:360px}.collection-info h3{font-size:30px}.portfolio-grid{grid-auto-rows:210px;gap:9px}.portfolio-photo.photo-0,.portfolio-photo.photo-1,.portfolio-photo.photo-2,.portfolio-photo.photo-3,.portfolio-photo.photo-4,.portfolio-photo.photo-5{grid-column:span 6;grid-row:span 1}.portfolio-photo.photo-0,.portfolio-photo.photo-3{grid-row:span 2}.portfolio-overlay{opacity:1}.about-section{grid-template-columns:1fr}.about-photo{min-height:440px}.about-copy{padding:70px 7% 95px}.about-index{left:7%}.service-row{grid-template-columns:30px 1fr 22px;gap:15px}.service-row h3{font-size:30px}.service-row p{grid-column:2;grid-row:2}.service-row>svg{grid-column:3;grid-row:1}.contact-layout{grid-template-columns:1fr;gap:45px}.contact-text h2{font-size:65px}.footer-main{grid-template-columns:1fr 1fr}.footer-main>p{grid-column:2;grid-row:1}.footer-links{grid-column:1/-1;justify-content:start}.footer-bottom{flex-wrap:wrap}}
 @media(max-width:520px){.container{padding:0 6%}.hero h1{font-size:clamp(59px,14vw,78px)}.hero-inner{padding-left:6%;padding-right:6%}.hero-actions{align-items:flex-start;flex-direction:column;gap:22px}.hero-bottom{left:6%;right:6%}.slide-controls{gap:12px}.scroll-cue{font-size:8px}.hero-description{font-size:23px}.eyebrow{font-size:9px;letter-spacing:.2em}.section-heading h2{font-size:54px}.collection-grid{grid-template-columns:1fr}.collection-card{height:360px}.collection-info h3{font-size:38px}.statement-section{padding:80px 0}.statement-content>p{font-size:46px}.filter-row{gap:21px}.portfolio-grid{grid-template-columns:1fr 1fr;grid-auto-rows:175px;gap:8px}.portfolio-photo.photo-0,.portfolio-photo.photo-1,.portfolio-photo.photo-2,.portfolio-photo.photo-3,.portfolio-photo.photo-4,.portfolio-photo.photo-5{grid-column:span 1;grid-row:span 1}.portfolio-photo.photo-0,.portfolio-photo.photo-3{grid-row:span 2}.portfolio-overlay{padding:12px}.portfolio-overlay h3{font-size:20px}.portfolio-overlay>span{font-size:8px}.about-photo{min-height:350px}.about-copy h2{font-size:59px}.contact-section{padding:80px 0}.contact-text h2{font-size:56px}.contact-form{padding:25px}.footer-main{grid-template-columns:1fr;gap:12px}.footer-main>p{grid-column:1;grid-row:2}.footer-links{grid-column:1;gap:19px}.footer-bottom{font-size:8px}.lightbox{padding:70px 43px}.lightbox-prev{left:7px}.lightbox-next{right:7px}}
 .portfolio-grid{display:block;columns:3;column-gap:15px}
+.portfolio-grid.featured-preview{columns:4}
+.desktop-nav a,.footer-links a{font-size:12px;letter-spacing:.045em;color:#e6e0d7;transition:color .25s}
+.desktop-nav a:hover,.footer-links a:hover,.gallery-nav a:hover{color:var(--gold)}
+.gallery-header{position:relative;background:#0b0b0a}
+.gallery-nav{display:flex;align-items:center;gap:30px;font-size:12px;letter-spacing:.045em}
+.gallery-nav a{display:inline-flex;align-items:center;gap:8px}
+.gallery-nav a[aria-current=page]{color:var(--gold)}
+.gallery-page{padding-top:45px;padding-bottom:90px;min-height:65vh}
+.gallery-back{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.16em;color:var(--muted)}
+.gallery-back:hover{color:var(--gold)}
+.gallery-intro{padding:65px 0 45px;max-width:720px}
+.gallery-intro h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(64px,8vw,112px);font-weight:400;line-height:1.05;letter-spacing:-.027em;margin:0 0 20px}
+.gallery-intro h1 em{color:#d6b992;font-weight:400}
+.gallery-intro>p:last-child{max-width:480px;color:var(--muted);font-size:14px;line-height:1.9}
+.gallery-results{text-align:center;margin-top:35px}
+.gallery-results p,.gallery-notice{font-size:12px;line-height:1.8;color:var(--muted)}
+.gallery-results .outline-button{margin-top:15px}
+.gallery-footer{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.gallery-footer p{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;color:var(--muted)}
 .portfolio-photo{display:block;width:100%;padding:0;margin:0 0 15px;break-inside:avoid;isolation:isolate}
 .portfolio-image{display:block;width:100%;height:auto}
 .portfolio-photo:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .portfolio-overlay{pointer-events:none}
 .portfolio-empty{column-span:all;color:var(--muted);font-size:14px;line-height:1.8;padding:35px 0;margin:0}
-@media(max-width:900px){.portfolio-grid{columns:2;column-gap:12px}.portfolio-photo{margin-bottom:12px}}
-@media(max-width:520px){.portfolio-grid{columns:1}.portfolio-photo{margin-bottom:16px}.portfolio-photo .portfolio-overlay{padding:18px}.portfolio-photo .portfolio-overlay h3{font-size:25px}}
+@media(max-width:1100px){.portfolio-grid.featured-preview{columns:3}}
+@media(max-width:900px){.portfolio-grid,.portfolio-grid.featured-preview{columns:2;column-gap:12px}.portfolio-photo{margin-bottom:12px}}
+@media(max-width:780px){.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:46px}.gallery-nav{gap:18px}.gallery-footer{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.portfolio-grid,.portfolio-grid.featured-preview{columns:1}.portfolio-photo{margin-bottom:16px}.portfolio-photo .portfolio-overlay{padding:18px}.portfolio-photo .portfolio-overlay h3{font-size:25px}.gallery-nav{gap:12px;font-size:11px}.gallery-intro{padding-top:45px}.gallery-header .brand img{width:125px}}
 .contact-form .solid-button:disabled{cursor:wait;opacity:.65;transform:none}
 .contact-form input:disabled,.contact-form select:disabled,.contact-form textarea:disabled{opacity:.7}
 /* Stack slide text in shared rows so every slide reserves the same space.
