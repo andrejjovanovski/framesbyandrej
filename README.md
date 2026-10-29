@@ -34,7 +34,7 @@ The website shows sample photography until you publish content for each section.
 - **Homepage hero slide**: headline, italic line, caption, image, order.
 - **Collection**: title, subtitle, category, image, order.
 - **Portfolio photograph**: title, image, category, order, alt description. Every published photo appears at `/gallery`. Enable **Featured** to include it in the homepage preview; all featured photos appear according to Order, with no limit and the same masonry layout as the full gallery. The full gallery has category filters, an uncropped masonry layout, a lightbox, and Load More in batches of 24. Collection cards link to `/gallery?category=category-id`.
-- **Website settings**: About photo/text, Instagram and Facebook links, contact email.
+- **Website settings**: About photo/text, Instagram and Facebook links, optional TikTok URL, contact email. TikTok links appear only when its URL is filled in and published.
 
 ## Before publishing
 

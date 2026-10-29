@@ -7,7 +7,7 @@ const apiVersion=process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-02-19';
 export const client=projectId?createClient({projectId,dataset,apiVersion,useCdn:false,perspective:'published'}):null;
 const builder=client?imageUrlBuilder(client):null;
 export function sanityImage(source:unknown,width=1600){return source&&builder?builder.image(source).width(width).auto('format').quality(85).url():'';}
-export type SiteContent={categories:CategoryOption[];slides:{image:string;eyebrow:string;heading:string;highlight:string;sub:string}[];collections:{title:string;subtitle:string;image:string;category:string}[];gallery:{id?:string;featured?:boolean;src:string;title:string;type:string;alt?:string;width?:number;height?:number}[];settings:{aboutImage?:string;aboutLead?:string;aboutParagraphs?:string[];contactEmail?:string;instagramUrl?:string;facebookUrl?:string}|null};
+export type SiteContent={categories:CategoryOption[];slides:{image:string;eyebrow:string;heading:string;highlight:string;sub:string}[];collections:{title:string;subtitle:string;image:string;category:string}[];gallery:{id?:string;featured?:boolean;src:string;title:string;type:string;alt?:string;width?:number;height?:number}[];settings:{aboutImage?:string;aboutLead?:string;aboutParagraphs?:string[];contactEmail?:string;instagramUrl?:string;facebookUrl?:string;tiktokUrl?:string}|null};
 export async function getSiteContent({allPhotos=false}:{allPhotos?:boolean}={}):Promise<SiteContent|null>{
  if(!client)return null;
  try{
@@ -16,7 +16,7 @@ export async function getSiteContent({allPhotos=false}:{allPhotos?:boolean}={}):
  "slides":*[_type=="heroSlide"]|order(order asc,_createdAt asc){eyebrow,heading,highlight,sub,image},
  "collections":*[_type=="collection"]|order(order asc,_createdAt asc){title,subtitle,category,image},
  "gallery":*[_type=="photo" && defined(image.asset)${allPhotos?"":" && featured!=false"}]|order(order asc,_createdAt asc){_id,featured,title,alt,category,image,"dimensions":image.asset->metadata.dimensions},
- "settings":*[_type=="siteSettings"][0]{aboutImage,aboutLead,aboutParagraphs,contactEmail,instagramUrl,facebookUrl}
+ "settings":*[_type=="siteSettings"][0]{aboutImage,aboutLead,aboutParagraphs,contactEmail,instagramUrl,facebookUrl,tiktokUrl}
  }`,{}, {cache:'no-store'});
  return {categories:result.categories,slides:result.slides.map(s=>({...s,image:sanityImage(s.image,2200)})).filter(s=>s.image),collections:result.collections.map(c=>({...c,image:sanityImage(c.image,1200)})).filter(c=>c.image),gallery:result.gallery.map(g=>({id:g._id,featured:g.featured,src:sanityImage(g.image?.asset,1800),title:g.title,type:g.category,alt:g.alt,width:g.dimensions?.width,height:g.dimensions?.height})).filter(g=>g.src),settings:result.settings?{...result.settings,aboutImage:sanityImage(result.settings.aboutImage,1300)}:null};
  }catch(e){console.error('Sanity content unavailable; displaying sample content',e);return null;}
