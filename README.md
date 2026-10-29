@@ -30,6 +30,7 @@ The website shows sample photography until you publish content for each section.
 
 ## Content editing
 
+- **Category**: create a name, generate its Category ID once, set its order, and publish. Category names and filter order update on the website after refresh; keep the Category ID unchanged when renaming. Select categories in collections and portfolio photographs. Existing selections keep working. To make old selections editable category documents, open any existing photograph or collection and click **Create and publish existing categories** below its Category field.
 - **Homepage hero slide**: headline, italic line, caption, image, order.
 - **Collection**: title, subtitle, category, image, order.
 - **Portfolio photograph**: title, image, category, order, alt description.
