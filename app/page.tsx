@@ -1,9 +1,6 @@
-import {getSiteContent} from '../lib/sanity';
-import HomeClient from './HomeClient';
+import HomePage,{homeSEO} from '../components/HomePage';
 
 export const dynamic = 'force-dynamic';
 
-export default async function Home() {
-  const content = await getSiteContent();
-  return <HomeClient content={content}/>;
-}
+export const generateMetadata=()=>homeSEO('mk');
+export default function Home(){return <HomePage locale="mk"/>;}

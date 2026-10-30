@@ -1,5 +1,7 @@
 # Frames by Andrej — Next.js + Sanity CMS
 
+The primary website is in Macedonian, with an English version under `/en`. See [SEO.md](SEO.md) for the SEO implementation and owner setup steps. Add translations in the optional Macedonian fields in Sanity; original fields supply English content. Keep category IDs stable when editing names.
+
 ## Run locally
 
 ```bash

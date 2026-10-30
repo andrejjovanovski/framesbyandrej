@@ -1,7 +1,8 @@
-export type CategoryOption = {key: string; title: string};
+export type CategoryOption = {key: string; title: string; description?:string};
 
 export function categoryKey(value: string) {
-  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  const letters:Record<string,string>={'а':'a','б':'b','в':'v','г':'g','д':'d','ѓ':'gj','е':'e','ж':'zh','з':'z','ѕ':'dz','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ќ':'kj','у':'u','ф':'f','х':'h','ц':'c','ч':'ch','џ':'dzh','ш':'sh'};
+  return value.toLowerCase().replace(/[а-яѓѕјљњќџ]/g,letter=>letters[letter]||letter).normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 

@@ -4,7 +4,10 @@ import {categoryKey} from '../../lib/categories';
 export const categoryType = defineType({
   name: 'category', title: 'Category', type: 'document',
   fields: [
+    defineField({name:'description',title:'Category introduction (English)',type:'text',rows:3}),
+    defineField({name:'descriptionMk',title:'Category introduction (Macedonian)',type:'text',rows:3}),
     defineField({name: 'title', title: 'Name', type: 'string', validation: r => r.required()}),
+ defineField({name:'titleMk',title:'Name / title (Macedonian)',type:'string',description:'Macedonian text for the main website. The original field is used on the English version.'}),
     defineField({
       name: 'slug', title: 'Category ID', type: 'slug',
       options: {source: 'title', slugify: categoryKey},
