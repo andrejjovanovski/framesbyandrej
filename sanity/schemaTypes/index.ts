@@ -4,4 +4,7 @@ import {collectionType} from './collection';
 import {heroSlideType} from './heroSlide';
 import {siteSettingsType} from './siteSettings';
 import {categoryType} from './category';
-export const schemaTypes: SchemaTypeDefinition[] = [siteSettingsType, categoryType, heroSlideType, collectionType, photoType];
+import {filmType} from './film';
+import {commercialProjectType} from './commercialProject';
+import {projectImage} from './projectFields';
+export const schemaTypes: SchemaTypeDefinition[] = [siteSettingsType, categoryType, heroSlideType, collectionType, photoType,projectImage,filmType,commercialProjectType];

@@ -1,9 +1,11 @@
 import {cache} from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import {notFound} from 'next/navigation';
-import {ArrowLeft,ArrowUpRight} from 'lucide-react';
+import {ArrowLeft} from 'lucide-react';
 import PhotoGallery from './PhotoGallery';
+import SiteHeader from './SiteHeader';
+import SiteFooter from './SiteFooter';
 import {getSiteContent} from '../lib/sanity';
 import {categoryKey,categoryOptions} from '../lib/categories';
 import {translator,homePath,galleryPath,type Locale} from '../lib/i18n';
@@ -44,10 +46,7 @@ export default async function GalleryPage({locale,category='',page=1}:{locale:Lo
   ]};
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJson(schema)}}/>
-    <header className="site-header gallery-header"><div className="header-inner">
-      <Link href={homePath(locale)} className="brand" aria-label={t('Go to homepage')}><Image src="/branding/frames-logo-trim.png" alt="Frames by Andrej Photography and Film" width={190} height={130} priority/></Link>
-      <nav className="gallery-nav" aria-label="Main navigation"><Link className="gallery-home-link" href={homePath(locale)}>{t('Home')}</Link><Link href={galleryPath(locale)} aria-current={category?undefined:'page'}>{t('Gallery')}</Link><Link href={`${homePath(locale)}#contact`}>{t('Contact')} <ArrowUpRight size={14}/></Link><Link className="language-switch" href={galleryPath(locale==='mk'?'en':'mk',category,page)} hrefLang={locale==='mk'?'en':'mk'}>{locale==='mk'?'EN':'МК'}</Link></nav>
-    </div></header>
+    <SiteHeader locale={locale} alternate={galleryPath(locale==='mk'?'en':'mk',category,page)} active="Photography" settings={content?.settings}/>
     <main className="gallery-page container">
       <Link className="gallery-back" href={homePath(locale)}><ArrowLeft size={15}/>{t('BACK TO HOME')}</Link>
       <div className="gallery-intro"><p className="eyebrow"><span className="tiny-line"/>{t('PLACES, PEOPLE & STORIES')}</p>
@@ -56,6 +55,6 @@ export default async function GalleryPage({locale,category='',page=1}:{locale:Lo
       {!content&&<p className="gallery-notice" role="status">{t('The gallery is temporarily unavailable. Please refresh in a moment.')}</p>}
       <PhotoGallery key={`${category}-${page}`} photos={photos} categories={categories} initialCategory={category} initialPage={page} locale={locale}/>
     </main>
-    <footer className="footer"><div className="container gallery-footer"><p>{t('Photography & film. Made with intention.')}</p><Link className="outline-button" href={`${homePath(locale)}#contact`}>{t('LET’S CREATE SOMETHING')} <ArrowUpRight size={16}/></Link></div></footer>
+    <SiteFooter locale={locale}/>
   </>;
 }

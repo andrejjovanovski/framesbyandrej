@@ -12,7 +12,7 @@ export default function CategoryInput(props: StringInputProps) {
   const refresh = useCallback(async () => {
     try {
       const result = await client.fetch<{categories:CategoryOption[];existing:string[]}>(
-        '{"categories":*[_type=="category" && defined(slug.current)]|order(order asc,title asc){title,"key":slug.current},"existing":array::unique(*[_type in ["photo","collection"] && defined(category)].category)}',
+        '{"categories":*[_type=="category" && coalesce(portfolioType,"photography")=="photography" && defined(slug.current)]|order(order asc,title asc){title,"key":slug.current},"existing":array::unique(*[_type in ["photo","collection"] && defined(category)].category)}',
         {}, {perspective: 'published', cache: 'no-store'},
       );
       setCategories(result.categories);

@@ -21,7 +21,7 @@ const loadSiteContent=cache(async(allPhotos:boolean,locale:Locale):Promise<SiteC
  try{
   const result=await client.fetch<{categories:any[];slides:any[];collections:any[];gallery:any[];settings:any;lastUpdated?:string}>(`{
    "lastUpdated":*[_type in ["category","photo","collection","heroSlide","siteSettings"]]|order(_updatedAt desc)[0]._updatedAt,
-   "categories":*[_type=="category" && defined(slug.current)]|order(order asc,title asc){title,titleMk,description,descriptionMk,"key":slug.current},
+   "categories":*[_type=="category" && coalesce(portfolioType,"photography")=="photography" && defined(slug.current)]|order(order asc,title asc){title,titleMk,description,descriptionMk,"key":slug.current},
    "slides":*[_type=="heroSlide"]|order(order asc,_createdAt asc){eyebrow,eyebrowMk,heading,headingMk,highlight,highlightMk,sub,subMk,image,alt,altMk},
    "collections":*[_type=="collection"]|order(order asc,_createdAt asc){title,titleMk,subtitle,subtitleMk,alt,altMk,category,image},
    "gallery":*[_type=="photo" && defined(image.asset)${allPhotos?'':' && featured!=false'}]|order(order asc,_createdAt asc){_id,featured,title,titleMk,alt,altMk,category,image,"dimensions":image.asset->metadata.dimensions},

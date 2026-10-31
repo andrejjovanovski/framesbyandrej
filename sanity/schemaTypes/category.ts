@@ -4,6 +4,7 @@ import {categoryKey} from '../../lib/categories';
 export const categoryType = defineType({
   name: 'category', title: 'Category', type: 'document',
   fields: [
+    defineField({name:'portfolioType',title:'Portfolio section',type:'string',initialValue:'photography',options:{list:[{title:'Photography',value:'photography'},{title:'Films',value:'films'},{title:'Commercial',value:'commercial'}]},description:'Existing categories without this field are photography categories.'}),
     defineField({name:'description',title:'Category introduction (English)',type:'text',rows:3}),
     defineField({name:'descriptionMk',title:'Category introduction (Macedonian)',type:'text',rows:3}),
     defineField({name: 'title', title: 'Name', type: 'string', validation: r => r.required()}),

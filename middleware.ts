@@ -9,4 +9,4 @@ export function middleware(request:NextRequest) {
   }
   return response;
 }
-export const config={matcher:['/','/gallery/:path*','/en/:path*','/studio/:path*']};
+export const config={matcher:['/','/gallery/:path*','/films/:path*','/commercial/:path*','/contact','/en/:path*','/studio/:path*']};

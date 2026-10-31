@@ -2,6 +2,8 @@
 
 The primary website is in Macedonian, with an English version under `/en`. See [SEO.md](SEO.md) for the SEO implementation and owner setup steps. Add translations in the optional Macedonian fields in Sanity; original fields supply English content. Keep category IDs stable when editing names.
 
+Films, commercial projects and client inquiries are documented in [PORTFOLIO.md](PORTFOLIO.md), including Studio setup, service selection, video hosting, tests and delivery checks.
+
 ## Run locally
 
 ```bash
@@ -40,7 +42,7 @@ The website shows sample photography until you publish content for each section.
 
 ## Before publishing
 
-- The contact form sends inquiries through Formspree (`https://formspree.io/f/mzeegbel`). Configure and verify the recipient email in the Formspree dashboard. The contact email in Sanity does not control form delivery.
+- The contact forms send validated inquiries through `/api/inquiry` to Formspree (`https://formspree.io/f/mzeegbel`). Configure and verify the recipient email in the Formspree dashboard. The contact email in Sanity does not control form delivery.
 - Set your Instagram and Facebook URLs in Website settings.
 - The supplied original logo lives in `public/branding/`.
 - The site uses sample Unsplash images where Sanity documents have not been published.

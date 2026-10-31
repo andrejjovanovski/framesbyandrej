@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "setup:content": "sanity exec scripts/setup-content.ts --with-user-token"
+    "setup:content": "sanity exec scripts/setup-content.ts --with-user-token",
+    "setup:portfolio": "sanity exec scripts/setup-portfolio.ts --with-user-token",
+    "test": "node --test tests/portfolio.test.cjs"
   },
   "dependencies": {
     "next": "^15.5.0",
