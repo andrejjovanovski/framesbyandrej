@@ -17,7 +17,7 @@ export function pageMetadata(locale:Locale,title:string,description:string,path:
   };
 }
 export const homeMetadata=(locale:Locale)=>pageMetadata(locale,
-  locale==='mk'?'Фотограф Куманово и Скопје | Frames by Andrej':'Photographer in Kumanovo & Skopje | Frames by Andrej',
+  locale==='mk'?'Frames by Andrej | Фотографија и филм':'Frames by Andrej | Photography & Film',
   locale==='mk'?'Портрети, свадби, настани и креативна фотографија со Frames by Andrej. Достапен во Куманово, Скопје, Кратово, Крива Паланка, Тетово и низ Македонија.':'Portraits, weddings, events and creative photography in Kumanovo, Skopje, Kratovo, Kriva Palanka, Tetovo and across North Macedonia. Explore Frames by Andrej.',
   homePath(locale),homePath(locale==='mk'?'en':'mk'));
 
